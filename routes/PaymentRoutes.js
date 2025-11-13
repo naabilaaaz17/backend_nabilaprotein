@@ -24,6 +24,10 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+// ✅ Tambahkan ini di atas router.post
+router.get("/", (req, res) => {
+  res.send("✅ Payment route connected and working!");
+});
 
 // ✅ Endpoint: POST /api/payment
 router.post("/", upload.single("receipt"), async (req, res) => {
